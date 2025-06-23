@@ -1,0 +1,5 @@
+ExpVar. Exp ::= Var     ;
+ExpNum. Exp ::= Integer ;
+
+-- Lexical elements
+token Var (letter (letter | digit)*);

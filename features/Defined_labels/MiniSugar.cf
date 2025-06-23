@@ -1,0 +1,16 @@
+Program. Prog ::= [Stm] ;
+
+terminator Stm ";" ;
+
+Assign. Stm ::= Ident "=" Exp ;
+inc.    Stm ::= Ident "++" ;
+
+define inc x = Assign x (EPlus (EVar x) (EInt 1)) ;
+
+EInt.  Exp ::= Integer ;
+EVar.  Exp ::= Ident ;
+EPlus. Exp ::= Exp "+" Exp ;
+
+token Integer (digit+) ;
+token Ident   (letter (letter | digit | '_' | '\'')*) ;
+

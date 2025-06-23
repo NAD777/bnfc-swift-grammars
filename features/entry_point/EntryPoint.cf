@@ -1,0 +1,13 @@
+entrypoints Stm, Exp2, [Ident];
+
+Program. Prog ::= [Stm] ;
+
+terminator Stm ";" ;
+
+SAssign. Stm ::= Ident "=" Exp ;
+
+EInt.  Exp2 ::= Integer ;
+_.     Exp1 ::= Exp2 ;
+_.     Exp  ::= Exp1 ;
+
+terminator Ident "," ;

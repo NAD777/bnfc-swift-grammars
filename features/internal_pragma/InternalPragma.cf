@@ -1,0 +1,11 @@
+Program. Prog ::= Exp ;
+
+EInt.  Exp ::= Integer ;
+EVar.  Exp ::= Ident ;
+
+TInt.  Type ::= "Int" ;
+TBool. Type ::= "Bool" ;
+TVar.  Type ::= Ident ;
+
+internal EVarT. Exp ::= "(" Ident ":" Type ")" ;
+

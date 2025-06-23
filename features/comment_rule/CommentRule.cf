@@ -1,0 +1,9 @@
+Program. Prog ::= [Stmt] ;
+
+terminator Stmt ";" ;
+
+SAssign. Stmt ::= Ident "=" Integer ;
+
+comment "//" ;
+comment "/*" "*/" ;
+

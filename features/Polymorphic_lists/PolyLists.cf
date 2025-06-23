@@ -1,0 +1,20 @@
+--  File: PolyLists.cf
+--  Demonstrates polymorphic lists: [], (:[]), (:) on category [Def]
+
+--------------------------------------------------
+-- 1.  Program = *list* of definitions -----------------------------
+
+Program. Prog ::= [Def] ;      -- the whole file is just a list of Def’s
+
+--------------------------------------------------
+-- 2.  A single definition  ---------------------------------------
+
+DAssign. Def ::= Ident "=" Integer ;
+
+--------------------------------------------------
+-- 3.  *Polymorphic* list rules for [Def]  -------------------------
+
+[].     [Def] ::= ;                     -- empty list
+(:[]).  [Def] ::= Def ;                 -- one-element list  (optional, but handy)
+(:).    [Def] ::= Def ";" [Def] ;       -- cons with “;” as separator
+

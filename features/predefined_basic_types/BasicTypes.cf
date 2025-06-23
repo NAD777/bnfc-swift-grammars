@@ -1,0 +1,34 @@
+--  File: BasicTypes.cf
+--  A toy declaration-and-assignment language
+--  demonstrating BNFC’s predefined basic types.
+
+--------------------------------------------------
+-- 1.  Top-level non-terminal
+--------------------------------------------------
+
+Program.  Prog ::= [Stmt] ;
+
+separator Stmt ";" ;     -- allow “;” after every statement (and final “;” is optional)
+
+--------------------------------------------------
+-- 2.  Statements – one variant per basic type
+--------------------------------------------------
+
+SInt     . Stmt ::= "int"    Ident "=" Integer ;
+SDouble  . Stmt ::= "double" Ident "=" Double  ;
+SChar    . Stmt ::= "char"   Ident "=" Char    ;
+SString  . Stmt ::= "string" Ident "=" String  ;
+
+-- Generic assignment so we can reuse the variables we just declared.
+SAssign  . Stmt ::= Ident "=" Expr ;
+
+--------------------------------------------------
+-- 3.  Expressions – literals & variables
+--------------------------------------------------
+
+EInt     . Expr  ::= Integer ;
+EDouble  . Expr  ::= Double  ;
+EChar    . Expr  ::= Char    ;
+EString  . Expr  ::= String  ;
+EVar     . Expr  ::= Ident   ;
+

@@ -1,0 +1,1 @@
+rules Type ::= Type "[" Integer "]" | "float" | "double" | Type "*" | Ident ;

@@ -1,0 +1,27 @@
+--  File: ArithmeticPrecedence.cf
+--  Goal: demonstrate indexed categories for operator precedence
+--        plus dummy (“_”) coercion rules.
+
+--------------------------------------------------
+-- 1.  Top level  --------------------------------------------------
+
+Program. Prog ::= Exp ;
+
+--------------------------------------------------
+-- 2.  Expressions with three precedence levels  ------------------
+
+--  Level 2  (highest): integer literals
+EInt   . Exp2 ::= Integer ;
+
+--  Level 1: multiplication, left-associative
+ETimes . Exp1 ::= Exp1 "*" Exp2 ;
+
+--  Level 0 (lowest): addition, left-associative
+EPlus  . Exp  ::= Exp  "+" Exp1 ;
+
+--  Parentheses promote any expression to highest level
+_      . Exp2 ::= "(" Exp ")" ;
+
+--  Coercions between levels (semantic no-ops)
+_      . Exp1 ::= Exp2 ;
+_      . Exp  ::= Exp1 ;

@@ -1,0 +1,12 @@
+-- DummySemicolons.cf
+
+Prog. Prog ::= [Stm] ;
+
+separator Stm "" ;          -- empty string ⇒ whitespace separates Stm’s
+
+SAssign . Stm ::= Ident "=" Integer ;
+_       . Stm ::= Stm ";" ; -- “semantic dummy”
+
+token Integer (digit+) ;
+token Ident   (letter (letter | digit | '_' | '\'')*) ;
+

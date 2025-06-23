@@ -1,0 +1,3 @@
+EPlus . Expr   ::= Expr "+" Number;
+Enum  . Expr   ::= Number         ;
+NOne  . Number ::= "1"            ;

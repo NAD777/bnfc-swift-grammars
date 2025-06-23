@@ -1,0 +1,28 @@
+-- Абстрактный синтаксис для программы
+Program. Prog ::= [Stmt] [Def] ;
+
+-- Определения выражений и операций
+ExpAdd. Exp ::= Exp "+" Exp ;
+ExpSub. Exp ::= Exp "-" Exp ;
+ExpMul. Exp ::= Exp "*" Exp ;
+ExpDiv. Exp ::= Exp "/" Exp ;
+ExpVar. Exp ::= Var ;
+ExpNum. Exp ::= Integer ;
+
+-- Присваивание переменной
+StmtAssign. Stmt ::= Var "=" Exp ;
+
+-- Выражение как самостоятельное выражение
+StmtExpr. Stmt ::= Exp ;
+
+-- Определение для нового списка (например, функций)
+DefFunc. Def ::= "def" Var "(" [Var] ")" "{" [Stmt] "}" ;
+
+-- Лексические элементы
+token Var (letter (letter | digit)*);;
+
+-- Определение символов
+separator Stmt ";" ;
+separator Def ";" ;
+separator Var "," ;
+

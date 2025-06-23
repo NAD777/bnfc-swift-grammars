@@ -1,0 +1,8 @@
+Program. Prog ::= [Decl] ;
+
+terminator Decl ";" ;
+
+DDecl.  Decl ::= UIdent Ident "=" Integer ;
+
+token UIdent (upper (letter | digit | '_')*) ;
+

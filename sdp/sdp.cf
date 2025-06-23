@@ -1,0 +1,16 @@
+EntryPoint.   Session ::= [Attribute] [MediaDescription];
+
+separator Attribute ",";
+Attribute.    Attribute ::= String "=" String;
+
+separator MediaDescription ",";
+Media.        MediaDescription ::= "m=" MediaType Port Protocol;
+
+MediaType_audio. MediaType ::= "audio";
+MediaType_video. MediaType ::= "video";
+
+Port.         Port ::= Integer;
+
+Protocol_rtp. Protocol ::= "RTP/AVP";
+Protocol_udp. Protocol ::= "UDP/TLS/RTP/SAVPF";
+
